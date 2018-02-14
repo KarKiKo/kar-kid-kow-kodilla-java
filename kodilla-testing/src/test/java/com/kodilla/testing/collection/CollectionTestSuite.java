@@ -48,6 +48,6 @@ public class CollectionTestSuite {
              ) {
             sum += (temp % 2);
             }
-            Assert.assertEquals(sum,0);
+            Assert.assertEquals(0, sum);
     }
 }
