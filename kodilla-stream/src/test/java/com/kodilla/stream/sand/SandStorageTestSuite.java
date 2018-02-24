@@ -42,4 +42,5 @@ public class SandStorageTestSuite {
         BigDecimal expectedSand = new BigDecimal("211111110903703703670");
         Assert.assertEquals(expectedSand, totalSand);
     }
+
 }
