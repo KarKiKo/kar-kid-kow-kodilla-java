@@ -14,7 +14,6 @@ import static jdk.nashorn.internal.objects.NativeString.*;
 public class StreamMain {
     public static void main(String[] args) {
 
-        //Niesprawdzone zadanie Modul 7.3
         Forum forumUsersToStream = new Forum();
         Map<Integer, ForumUser> mapOfForumUsers = forumUsersToStream.getUserList().stream()
                 .filter(forumUser -> forumUser.getGender() == 'M')

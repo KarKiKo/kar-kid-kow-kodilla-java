@@ -162,6 +162,12 @@ public class BoardTestSuite {
                 .reduce(0, (sum, current) -> sum + current);
 
         double averageTaskInDays = sumOfDays / numberOfTasks;
+/*        double sumOfDays = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .map(TaskList::getTasks)//null w tym przypadku bedzie obsluzony
+                .flatMap(Collection::stream)//flat map sie nie wywola ale nie powstanie nullpointerexception (sprawdzic co bedzie przy 0)
+                .map(s -> simpleDaysBetween(s.getCreated(), LocalDate.now()))
+                .reduce(0, (sum, current) -> sum + current);*/
         //Then
         Assert.assertEquals(10.0, averageTaskInDays, 0);
     }
@@ -185,7 +191,27 @@ public class BoardTestSuite {
                 .map(n -> durationOfInProgressTasks.get(n))
                 .average()
                 .getAsDouble();
+        /*        OptionalDouble average = durationOfInProgressTasks.stream()
+                .mapToInt(i -> i)
+                .average();
+        //Then
+        Assert.assertTrue(average.isPresent());
+        Assert.assertEquals(10.0, average.getAsDouble(), 0);*/
+
+
         //Then
         Assert.assertEquals(10.0, average, 0);
     }
 }
+/*
+    public static int simpleDaysBetween(final LocalDate start) {
+        return (int) ChronoUnit.DAYS.between(start, LocalDate.now());
+    }
+
+    double sumOfDays = project.getTaskLists().stream()
+            .filter(inProgressTasks::contains)
+            .map(TaskList::getTasks)
+            .flatMap(Collection::stream)
+            .map(Task::getCreated)
+            .map(BoardTestSuite::simpleDaysBetween)
+            .reduce(0, (sum, current) -> sum + current);*/
