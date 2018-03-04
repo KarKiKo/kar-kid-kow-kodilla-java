@@ -1,19 +1,19 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.food2door;
 
 public class OrderRequest {
 
-    public String userLogin;
+    public String supplier;
     public String product;
     public int quantity;
 
-    public OrderRequest(String userLogin, String product, int quantity) {
-        this.userLogin = userLogin;
+    public OrderRequest(String supplier, String product, int quantity) {
+        this.supplier = supplier;
         this.product = product;
         this.quantity = quantity;
     }
 
-    public String getUserLogin() {
-        return userLogin;
+    public String getSupplier() {
+        return supplier;
     }
 
     public String getProduct() {
