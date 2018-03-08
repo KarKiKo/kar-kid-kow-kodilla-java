@@ -19,7 +19,7 @@ public class FlightMap {
         flightMap.add(new Flight("E","C"));
     }
 
-    public HashSet<Flight> getflightMap() {
+    public HashSet<Flight> getFlightMap() {
     return new HashSet<>(flightMap);
     }
 

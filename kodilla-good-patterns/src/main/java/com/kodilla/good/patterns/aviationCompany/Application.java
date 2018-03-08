@@ -11,8 +11,8 @@ public class Application {
         System.out.println("\nSearch nr 3");
         findFlight.findFlightFromTo("B","A");
         System.out.println("\nSearch nr 4");
-        findFlight.allFlightsFrom("A");
+        findFlight.allFlightsFrom("E");
         System.out.println("\nSearch nr 5");
-        findFlight.allFlightsTo("E");
+        findFlight.allFlightsTo("B");
     }
 }
