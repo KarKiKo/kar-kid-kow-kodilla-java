@@ -1,8 +1,11 @@
 package com.kodilla.spring.portfolio;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import static org.junit.Assert.assertTrue;
 
 public class BoardTestSuite {
 
@@ -22,5 +25,10 @@ public class BoardTestSuite {
         doneList.addTask("done vacuuming");
         //Then
         board.readLists();
+        assertTrue(toDoList.getTasks().contains("toDo Dinner"));
+        assertTrue(toDoList.getTasks().contains("toDo Laundry"));
+        assertTrue(inProgressList.getTasks().contains("inProgress learning"));
+        assertTrue(doneList.getTasks().contains("done dishwashing"));
+        assertTrue(doneList.getTasks().contains("done vacuuming"));
     }
 }

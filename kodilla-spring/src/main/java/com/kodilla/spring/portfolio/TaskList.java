@@ -17,6 +17,10 @@ public class TaskList {
         return listName;
     }
 
+    public List<String> getTasks() {
+        return tasks;
+    }
+
     public void addTask(String task) {
         tasks.add(task);
     }
@@ -26,4 +30,5 @@ public class TaskList {
             System.out.println(task);
         }
     }
+
 }
