@@ -25,10 +25,8 @@ public class BoardTestSuite {
         doneList.addTask("done vacuuming");
         //Then
         board.readLists();
-        assertTrue(toDoList.getTasks().contains("toDo Dinner"));
-        assertTrue(toDoList.getTasks().contains("toDo Laundry"));
-        assertTrue(inProgressList.getTasks().contains("inProgress learning"));
-        assertTrue(doneList.getTasks().contains("done dishwashing"));
-        assertTrue(doneList.getTasks().contains("done vacuuming"));
+        assertTrue(toDoList.getTasks().contains("toDo Dinner") && toDoList.getTasks().contains("toDo Laundry")
+        && inProgressList.getTasks().contains("inProgress learning") && doneList.getTasks().contains("done dishwashing")
+        && doneList.getTasks().contains("done vacuuming"));
     }
 }
