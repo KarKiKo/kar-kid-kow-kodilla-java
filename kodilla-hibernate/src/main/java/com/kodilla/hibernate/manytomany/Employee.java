@@ -56,7 +56,7 @@ public class Employee {
         this.lastname = lastname;
     }
 
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},

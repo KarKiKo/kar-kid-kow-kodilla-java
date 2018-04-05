@@ -88,17 +88,17 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        employeeDao.save(johnSmith);
-        employeeDao.save(stephanieClarckson);
-        employeeDao.save(lindaKovalsky);
+        companyDao.save(softwareMachine);
+        companyDao.save(greyMatter);
+        companyDao.save(dataMaesters);
         //When
         List<Employee> listOfEmployeesWithGivenLastName = employeeDao.retrieveEmployeesWithGivenLastname("Smith");
         //Then
         Assert.assertEquals(1, listOfEmployeesWithGivenLastName.size());
         //CleanUp
-        employeeDao.delete(johnSmith);
-        employeeDao.delete(stephanieClarckson);
-        employeeDao.delete(lindaKovalsky);
+        companyDao.delete(softwareMachine.getId());
+        companyDao.delete(greyMatter.getId());
+        companyDao.delete(dataMaesters.getId());
     }
 
     @Test
