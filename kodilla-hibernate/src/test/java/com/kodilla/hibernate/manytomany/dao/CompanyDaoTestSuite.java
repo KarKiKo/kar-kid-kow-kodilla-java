@@ -30,6 +30,14 @@ public class CompanyDaoTestSuite {
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
 
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
         softwareMachine.getEmployees().add(johnSmith);
         dataMaesters.getEmployees().add(stephanieClarckson);
         dataMaesters.getEmployees().add(lindaKovalsky);
@@ -41,14 +49,6 @@ public class CompanyDaoTestSuite {
         stephanieClarckson.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
-
-        //When
-        companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
-        companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
-        companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
 
         //Then
         Assert.assertNotEquals(0, softwareMachineId);
@@ -76,6 +76,10 @@ public class CompanyDaoTestSuite {
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
 
+        companyDao.save(softwareMachine);
+        companyDao.save(greyMatter);
+        companyDao.save(dataMaesters);
+
         softwareMachine.getEmployees().add(johnSmith);
         dataMaesters.getEmployees().add(stephanieClarckson);
         dataMaesters.getEmployees().add(lindaKovalsky);
@@ -88,9 +92,10 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        companyDao.save(softwareMachine);
-        companyDao.save(greyMatter);
-        companyDao.save(dataMaesters);
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
+
         //When
         List<Employee> listOfEmployeesWithGivenLastName = employeeDao.retrieveEmployeesWithGivenLastname("Smith");
         //Then
@@ -112,6 +117,10 @@ public class CompanyDaoTestSuite {
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
 
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+
         softwareMachine.getEmployees().add(johnSmith);
         dataMaesters.getEmployees().add(stephanieClarckson);
         dataMaesters.getEmployees().add(lindaKovalsky);
@@ -124,9 +133,6 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        companyDao.save(softwareMachine);
-        companyDao.save(dataMaesters);
-        companyDao.save(greyMatter);
         //When
         List<Company> listOfCompaniesWithGivenFirst3Letters = companyDao.retrieveCompanyWithGivenThreeFirstLettersOfName("Dat");
         //Then
