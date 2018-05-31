@@ -10,6 +10,10 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME,1,3)=:PARAM",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.retrieveCompanyWithPhrase",
+        query = "FROM Company WHERE name LIKE :ARG"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
