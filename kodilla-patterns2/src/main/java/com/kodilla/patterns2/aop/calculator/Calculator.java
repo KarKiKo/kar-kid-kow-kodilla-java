@@ -2,12 +2,11 @@ package com.kodilla.patterns2.aop.calculator;
 
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
-import org.aspectj.lang.annotation.Around;
 
 import java.math.BigDecimal;
 
-@Component
 @EnableAspectJAutoProxy
+@Component
 public class Calculator {
 
     public double add(double x, double y){
