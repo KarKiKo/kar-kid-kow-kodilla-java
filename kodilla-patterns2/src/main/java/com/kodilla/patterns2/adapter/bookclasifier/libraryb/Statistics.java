@@ -28,6 +28,5 @@ public class Statistics implements BookStatistics {
         } else {
             return years[years.length / 2];
         }
-
     }
 }
