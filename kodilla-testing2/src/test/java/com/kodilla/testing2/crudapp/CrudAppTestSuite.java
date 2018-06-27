@@ -102,16 +102,15 @@ public class CrudAppTestSuite {
 
     public void removeTaskFromCrudApp(String taskName) throws InterruptedException{
         try{
-            //Wait 10 seconds till alert is present
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(driver, 5);
             Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-
-            //Accepting alert.
             alert.accept();
             System.out.println("Accepted the alert successfully.");
-        }catch(Throwable e){
+            }catch(Throwable e){
             System.err.println("Error came while waiting for the alert popup. "+e.getMessage());
         }
+             //Rozwiazanie alternatywne:
+             //driver.switchTo().alert().accept();
 
              driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
