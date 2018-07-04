@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 public class GameInput {
 
-    private Scanner yourMoveInput;
-    private Random computermove;
-    private String translatedMove;
+    private Random random = new Random();
+    private int yourChoice;
+    private int computerChoice;
 
     public int doYourMove() {
-        int yourChoice;
         while (true) {
-            yourMoveInput = new Scanner(System.in);
+            Scanner yourMoveInput = new Scanner(System.in);
             try {
                 yourChoice = yourMoveInput.nextInt();
                 break;
@@ -24,14 +23,27 @@ public class GameInput {
         }
         return yourChoice;
     }
-
     public String translateYourMove(int moveInt){
+        String translatedYourMove;
         switch(moveInt){
-            case 1: translatedMove = "Kamień"; break;
-            case 2: translatedMove = "Papier"; break;
-            case 3: translatedMove = "Nożyce"; break;
-            default: translatedMove = "Błędne zagranie, utrata punktu";
+            case 1: translatedYourMove = "Kamień"; break;
+            case 2: translatedYourMove = "Papier"; break;
+            case 3: translatedYourMove = "Nożyce"; break;
+            default: translatedYourMove = "Błędne zagranie, utrata punktu";
         }
-        return translatedMove;
+        return translatedYourMove;
+    }
+    public int doComputerMove() {
+        computerChoice = random.nextInt(3)+1;
+        return computerChoice;
+    }
+    public String translateComputerMove(int computerChoiceInt) {
+        String translatedComputerMove;
+        switch(computerChoiceInt){
+            case 1: translatedComputerMove = "Kamień"; break;
+            case 2: translatedComputerMove = "Papier"; break;
+            default: translatedComputerMove = "Nożyce"; break;
+        }
+        return translatedComputerMove;
     }
 }

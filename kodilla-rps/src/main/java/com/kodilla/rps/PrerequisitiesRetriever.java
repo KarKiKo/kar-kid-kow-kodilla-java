@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class PrerequisitiesRetriever {
 
-    public static int numberOfRounds;
-    public static String nameOfPlayer;
+    private static int numberOfRounds;
+    private static String nameOfPlayer;
 
     public void retrieveData(){
 
@@ -25,5 +25,13 @@ public class PrerequisitiesRetriever {
                 System.out.println("Podaj poprawnie liczbę rund");
             }
         }
+    }
+
+    public static int getNumberOfRounds() {
+        return numberOfRounds;
+    }
+
+    public static String getNameOfPlayer() {
+        return nameOfPlayer;
     }
 }
